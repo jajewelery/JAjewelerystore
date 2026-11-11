@@ -1,0 +1,182 @@
+{
+  "settings": {
+    "contactEmail": "hello@yourdomain.com",
+    "turnaround": "5 business days",
+    "deposits": {
+      "Ring": 150,
+      "Necklace": 120,
+      "Earrings": 100,
+      "Bracelet": 120,
+      "Other": 100
+    },
+    "metals": [
+      "14k yellow gold",
+      "14k white gold",
+      "14k rose gold",
+      "Sterling silver",
+      "Platinum",
+      "Not sure yet"
+    ],
+    "budgets": [
+      "Under $500",
+      "$500 to $1,000",
+      "$1,000 to $2,500",
+      "$2,500 to $5,000",
+      "Over $5,000",
+      "Not sure yet"
+    ],
+    "consentText": "I understand this deposit starts the design process and is credited toward the final price. The final price is quoted after design review.",
+    "checkoutNote": "Your deposit is credited toward the final price. We will email your design and a final quote within 5 business days. Reply to your receipt email to send reference photos.",
+    "watchDeposit": 1000,
+    "watchConsentText": "I understand this deposit reserves the watch for me and is credited toward the purchase price. The watch is held for a limited time and the remaining balance is arranged with the seller.",
+    "watchCheckoutNote": "Your deposit reserves this watch and is credited toward the purchase price. We will email you within 1 business day to arrange the balance and delivery."
+  },
+  "designs": [
+    {
+      "id": 1,
+      "name": "Solitaire Ring",
+      "type": "Ring",
+      "from": 420,
+      "mat": "Gold with a single stone",
+      "art": "ring"
+    },
+    {
+      "id": 2,
+      "name": "Classic Band",
+      "type": "Ring",
+      "from": 240,
+      "mat": "Polished gold band",
+      "art": "band"
+    },
+    {
+      "id": 3,
+      "name": "Drop Pendant",
+      "type": "Necklace",
+      "from": 360,
+      "mat": "Gold with a stone drop",
+      "art": "pendant"
+    },
+    {
+      "id": 4,
+      "name": "Curb Chain",
+      "type": "Necklace",
+      "from": 190,
+      "mat": "Solid gold chain",
+      "art": "chain"
+    },
+    {
+      "id": 5,
+      "name": "Everyday Hoops",
+      "type": "Earrings",
+      "from": 130,
+      "mat": "Gold hoops",
+      "art": "hoops"
+    },
+    {
+      "id": 6,
+      "name": "Crystal Studs",
+      "type": "Earrings",
+      "from": 95,
+      "mat": "Gold with stones",
+      "art": "studs"
+    },
+    {
+      "id": 7,
+      "name": "Cuff Bracelet",
+      "type": "Bracelet",
+      "from": 210,
+      "mat": "Adjustable gold cuff",
+      "art": "bracelet"
+    },
+    {
+      "id": 8,
+      "name": "Tennis Bracelet",
+      "type": "Bracelet",
+      "from": 520,
+      "mat": "Row of stones in gold",
+      "art": "tennis"
+    }
+  ],
+  "watches": [
+    {
+      "id": 1,
+      "name": "Datejust 41",
+      "ref": "126331",
+      "detail": "Two tone, Wimbledon dial",
+      "condition": "Pre-owned, like new",
+      "price": 23000,
+      "img": "watch-1.jpg",
+      "sold": false
+    },
+    {
+      "id": 2,
+      "name": "Submariner Date",
+      "ref": "126613LN",
+      "detail": "Two tone, black dial",
+      "condition": "Brand new",
+      "price": 25500,
+      "img": "watch-2.jpg",
+      "sold": false
+    },
+    {
+      "id": 3,
+      "name": "Datejust 41",
+      "ref": "126333",
+      "detail": "Two tone, champagne stick dial",
+      "condition": "Pre-owned",
+      "price": 23000,
+      "img": "watch-3.jpg",
+      "sold": false
+    },
+    {
+      "id": 4,
+      "name": "Datejust 41",
+      "ref": "116333",
+      "detail": "Two tone, black Roman dial",
+      "condition": "Pre-owned, like new",
+      "price": 17000,
+      "img": "watch-4.jpg",
+      "sold": false
+    },
+    {
+      "id": 5,
+      "name": "Yacht-Master 42",
+      "ref": "226658",
+      "detail": "Yellow gold, black dial",
+      "condition": "Pre-owned, like new",
+      "price": 42500,
+      "img": "watch-5.jpg",
+      "sold": false
+    },
+    {
+      "id": 6,
+      "name": "Datejust 41",
+      "ref": "126334",
+      "detail": "Azzurro blue Roman dial",
+      "condition": "Pre-owned",
+      "price": 17000,
+      "img": "watch-6.jpg",
+      "sold": false
+    },
+    {
+      "id": 7,
+      "name": "Datejust 41",
+      "ref": "126300",
+      "detail": "Blue stick dial",
+      "condition": "Brand new",
+      "price": 16000,
+      "img": "watch-7.jpg",
+      "sold": false
+    },
+    {
+      "id": 8,
+      "name": "Datejust 41",
+      "ref": "126334",
+      "detail": "Silver stick dial",
+      "condition": "Brand new",
+      "price": 19000,
+      "img": "watch-8.jpg",
+      "sold": false
+    }
+  ]
+}
