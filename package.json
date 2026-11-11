@@ -1,0 +1,9 @@
+{
+  "name": "ja-jewelry-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "JA Jewelry Store: static storefront with Stripe Checkout on Vercel",
+  "dependencies": {
+    "stripe": "^17.7.0"
+  }
+}
