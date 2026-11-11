@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JA Jewelery Store | Custom jewelery made in Toronto</title>
+<meta name="description" content="Custom gold jewelery designed around you. Share your idea, pay a design deposit, and we send you a design and quote.">
+<style>
+:root{
+  --ink:#0d0b08;
+  --ink-2:#17130d;
+  --line:#2e2618;
+  --gold:#d4af6a;
+  --gold-hi:#f0d9a0;
+  --gold-lo:#9c7a3c;
+  --paper:#f3ead8;
+  --muted:#a89c82;
+  --serif:"Cormorant Garamond","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+header.top{position:sticky;top:0;z-index:20;background:rgba(13,11,8,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:var(--serif);font-size:26px;letter-spacing:.04em;text-decoration:none;color:var(--gold-hi)}
+.logo small{font-family:var(--sans);font-size:12px;color:var(--muted);letter-spacing:.08em;margin-left:10px}
+nav{display:flex;gap:26px;align-items:center}
+nav a{text-decoration:none;font-size:15px;color:var(--muted)}
+nav a:hover{color:var(--gold-hi)}
+nav a.pill{border:1px solid var(--gold-lo);padding:8px 16px;border-radius:2px;color:var(--gold-hi)}
+nav a.pill:hover{border-color:var(--gold-hi)}
+
+.banner{background:var(--gold);color:var(--ink);text-align:center;padding:14px 24px;font-weight:600}
+
+.btn{display:inline-block;background:linear-gradient(180deg,var(--gold-hi),var(--gold) 55%,var(--gold-lo));color:var(--ink);border:0;padding:15px 30px;border-radius:2px;font-size:16px;font-weight:600;text-decoration:none;letter-spacing:.02em}
+.btn:hover{filter:brightness(1.08)}
+.btn[disabled]{opacity:.55;cursor:wait}
+
+.hero{border-bottom:1px solid var(--line);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;min-height:620px;padding-top:40px;padding-bottom:40px}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(46px,7vw,92px);line-height:.98;letter-spacing:-.01em}
+.hero h1 em{display:block;font-style:italic;color:var(--gold);font-weight:400}
+.hero p{margin:26px 0 34px;max-width:46ch;color:var(--muted);font-size:18px}
+.hero-art{display:grid;place-items:center}
+.hero-art svg{width:min(100%,520px);height:auto;filter:drop-shadow(0 30px 60px rgba(212,175,106,.18))}
+.sparkle{transform-origin:center;transform-box:fill-box;animation:tw 3.6s ease-in-out infinite}
+.sparkle:nth-of-type(2){animation-delay:1.2s}.sparkle:nth-of-type(3){animation-delay:2.2s}
+@keyframes tw{0%,100%{opacity:.15;transform:scale(.6)}50%{opacity:1;transform:scale(1.1)}}
+
+section{padding:84px 0}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(34px,4.5vw,52px);line-height:1.05}
+.lead{color:var(--muted);font-size:18px;max-width:56ch;margin-top:14px}
+
+.wgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:36px}
+.wcard{display:flex;flex-direction:column;background:var(--ink-2);border:1px solid var(--line)}
+.wcard .ph{position:relative;aspect-ratio:3/4;background:#1c1710;overflow:hidden}
+.wcard img{width:100%;height:100%;object-fit:cover;display:block}
+.wcard .tag{position:absolute;left:10px;top:10px;background:rgba(13,11,8,.82);color:var(--gold-hi);font-size:12px;letter-spacing:.04em;padding:4px 10px;border:1px solid var(--gold-lo)}
+.wcard .body{padding:16px;display:flex;flex-direction:column;gap:2px;flex:1}
+.wcard h3{font-family:var(--serif);font-weight:500;font-size:23px;line-height:1.15}
+.wcard .mat{font-size:13px;color:var(--muted)}
+.wcard .row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:14px;gap:8px}
+.wprice{font-family:var(--serif);font-size:23px;color:var(--gold-hi)}
+.pick[disabled]{opacity:.5;cursor:not-allowed}
+.disc{margin-top:26px;font-size:13px;color:#7d735e;max-width:80ch}
+.steps{border-bottom:1px solid var(--line)}
+.steps ol{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
+.steps li{border-top:1px solid var(--gold-lo);padding-top:16px}
+.steps .n{font-family:var(--serif);font-size:38px;color:var(--gold);line-height:1}
+.steps h3{font-family:var(--serif);font-weight:500;font-size:23px;margin:8px 0 6px}
+.steps p{color:var(--muted);font-size:15px}
+
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:36px}
+.card{display:flex;flex-direction:column;background:var(--ink-2);border:1px solid var(--line)}
+.card .pic{aspect-ratio:1;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#2a2113,var(--ink-2) 70%);border-bottom:1px solid var(--line)}
+.card .pic svg{width:78%;height:78%}
+.card .body{padding:16px;display:flex;flex-direction:column;gap:4px;flex:1}
+.card h3{font-family:var(--serif);font-weight:500;font-size:22px;line-height:1.15}
+.card .mat{font-size:13px;color:var(--muted)}
+.card .row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:14px;gap:8px}
+.from{font-size:13px;color:var(--gold-hi)}
+.pick{background:none;border:1px solid var(--gold-lo);padding:7px 12px;border-radius:2px;font-size:14px}
+.pick:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+
+.req{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.req .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.req aside p{color:var(--muted);margin-top:14px}
+.req aside ul{list-style:none;margin-top:22px;display:grid;gap:10px;color:var(--muted);font-size:15px}
+.req aside li{padding-left:22px;position:relative}
+.req aside li::before{content:"";position:absolute;left:0;top:.6em;width:10px;height:1px;background:var(--gold)}
+form{display:grid;gap:16px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:grid;gap:6px;font-size:14px;color:var(--muted)}
+label .opt{color:#7d735e}
+input,textarea,select{width:100%;background:var(--ink);border:1px solid var(--line);color:var(--paper);padding:12px 14px;font:inherit;border-radius:2px}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);background-position:calc(100% - 20px) 52%,calc(100% - 14px) 52%;background-size:6px 6px;background-repeat:no-repeat;padding-right:36px}
+textarea{min-height:140px;resize:vertical}
+.count{font-size:12px;color:#7d735e;text-align:right}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.check{grid-template-columns:auto 1fr;align-items:start;gap:12px;font-size:14px}
+.check input{width:20px;height:20px;margin-top:2px;accent-color:var(--gold)}
+.insp{display:none;align-items:center;gap:10px;background:var(--ink);border:1px solid var(--gold-lo);padding:10px 14px;font-size:14px;color:var(--gold-hi)}
+.insp.on{display:flex;justify-content:space-between}
+.insp button{background:none;border:0;color:var(--muted);text-decoration:underline;font-size:13px}
+.err{color:#e58b78;font-size:14px;min-height:1.2em}
+.paynote{font-size:13px;color:var(--muted);text-align:center}
+
+footer{padding:36px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+footer a{color:var(--gold-hi)}
+
+@media (max-width:960px){
+  .grid,.wgrid{grid-template-columns:repeat(2,1fr)}
+  .hero .wrap{grid-template-columns:1fr;min-height:0;padding-top:48px}
+  .hero-art{order:-1}.hero-art svg{width:min(70%,340px)}
+  .steps ol{grid-template-columns:1fr 1fr}
+  .req .wrap{grid-template-columns:1fr;gap:36px}
+  nav a.hide-s{display:none}
+}
+@media (max-width:560px){
+  .wgrid{gap:12px}.wcard .body{padding:12px}.wcard h3{font-size:19px}.wprice{font-size:19px}
+  .logo small{display:none}
+  .two{grid-template-columns:1fr}
+  .steps ol{grid-template-columns:1fr}
+  section{padding:60px 0}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6e3b0"/><stop offset=".45" stop-color="#d4af6a"/><stop offset="1" stop-color="#8c6a2d"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6e3b0"/><stop offset=".5" stop-color="#c79f55"/><stop offset="1" stop-color="#7a5a24"/>
+    </linearGradient>
+    <radialGradient id="gem" cx=".35" cy=".3" r=".9">
+      <stop offset="0" stop-color="#ffffff"/><stop offset=".4" stop-color="#d8ecf5"/><stop offset="1" stop-color="#7fa3b8"/>
+    </radialGradient>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="#top">JA<small>JEWELERY STORE</small></a>
+    <nav aria-label="Main">
+      <a class="hide-s" href="#watches">Watches</a>
+      <a class="hide-s" href="#how">Custom pieces</a>
+      <a class="hide-s" href="#designs">Starting points</a>
+      <a class="pill" href="#request">Start your piece</a>
+    </nav>
+  </div>
+</header>
+
+<div class="banner" id="banner" role="status" hidden>Thank you. Your request and deposit are in. We will email you with your design and quote soon.</div>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Made for you,<em>made by hand</em></h1>
+        <p>Tell us what you imagine. We design it, quote it, and make it in gold from our Toronto studio.</p>
+        <a class="btn" href="#request">Start your custom piece</a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 400 400">
+          <ellipse cx="200" cy="330" rx="130" ry="18" fill="#000" opacity=".35"/>
+          <circle cx="200" cy="215" r="108" fill="none" stroke="url(#g)" stroke-width="26"/>
+          <circle cx="200" cy="215" r="95" fill="none" stroke="#000" stroke-opacity=".25" stroke-width="2"/>
+          <path d="M160 108 L240 108 L262 78 L200 40 L138 78 Z" fill="url(#g2)"/>
+          <path d="M146 80 L200 40 L254 80 L200 104 Z" fill="url(#gem)"/>
+          <path d="M146 80 L200 104 L200 40 Z" fill="#fff" opacity=".35"/>
+          <path d="M200 40 L254 80 L200 104" fill="none" stroke="#8fb1c4" stroke-opacity=".6"/>
+          <g fill="#f6e3b0">
+            <path class="sparkle" d="M310 70 l5 17 17 5 -17 5 -5 17 -5 -17 -17 -5 17 -5z"/>
+            <path class="sparkle" d="M82 150 l4 12 12 4 -12 4 -4 12 -4 -12 -12 -4 12 -4z"/>
+            <path class="sparkle" d="M330 230 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3z"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <section id="watches">
+    <div class="wrap">
+      <h2>In stock watches</h2>
+      <p class="lead">Ready to ship. Reserve a watch with a deposit and we will contact you to arrange the balance and delivery.</p>
+      <div class="wgrid" id="wgrid"></div>
+      <p class="disc">JA Jewelery Store is an independent retailer and is not affiliated with, authorized by or endorsed by Rolex SA. Rolex, Datejust, Submariner and Yacht-Master are trademarks of their respective owner.</p>
+    </div>
+  </section>
+
+  <section class="steps" id="how">
+    <div class="wrap">
+      <h2>Custom pieces: how it works</h2>
+      <ol>
+        <li><div class="n">1</div><h3>Share your idea</h3><p>Fill in the request form: the piece, the metal, your budget and what you have in mind.</p></li>
+        <li><div class="n">2</div><h3>Pay the deposit</h3><p>A small design deposit starts the work. It is credited toward the final price.</p></li>
+        <li><div class="n">3</div><h3>Get your design</h3><p>We email your design and a final quote within <span class="ta">5 business days</span>.</p></li>
+        <li><div class="n">4</div><h3>We make it</h3><p>Approve the design, pay the balance, and we craft and ship your piece.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="designs">
+    <div class="wrap">
+      <h2>Starting points</h2>
+      <p class="lead">Not sure where to begin? Pick a style you like and we will customize it for you. Prices shown are a guide only.</p>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="req" id="request">
+    <div class="wrap">
+      <aside>
+        <h2 id="reqTitle">Request your piece</h2>
+        <p id="reqLead">The more detail you give us, the closer the first design will be.</p>
+        <ul>
+          <li>Pay a design deposit to submit your request</li>
+          <li>The deposit is credited toward your final price</li>
+          <li>You get your design and quote by email</li>
+          <li>Questions first? Email <a id="mail" href="#" style="color:var(--gold-hi)"></a></li>
+        </ul>
+      </aside>
+
+      <form id="form" novalidate>
+        <div class="insp" id="insp"><span id="inspText"></span><button type="button" id="inspClear">Remove</button></div>
+
+        <div class="two">
+          <label>Your name<input name="name" autocomplete="name" required></label>
+          <label>Email<input name="email" type="email" autocomplete="email" required></label>
+        </div>
+        <label>Phone <span class="opt">(optional)</span><input name="phone" type="tel" autocomplete="tel"></label>
+
+        <div class="two cfield">
+          <label>Type of piece<select name="type" id="type" required></select></label>
+          <label>Metal<select name="metal" id="metal" required></select></label>
+        </div>
+        <div class="two cfield">
+          <label>Stone or gem <span class="opt">(optional)</span><input name="stone" placeholder="e.g. 1 ct round diamond"></label>
+          <label>Size <span class="opt">(optional)</span><input name="size" placeholder="Ring size, chain length, wrist size"></label>
+        </div>
+        <div class="two cfield">
+          <label>Budget<select name="budget" id="budget" required></select></label>
+          <label>Needed by <span class="opt">(optional)</span><input name="neededBy" type="date"></label>
+        </div>
+
+        <label><span id="descLabel">Describe your idea</span>
+          <textarea name="description" id="desc" maxlength="1000" required placeholder="Shape, style, engraving, who it is for, anything that matters to you."></textarea>
+          <span class="count"><span id="cnt">0</span> / 1000</span>
+        </label>
+        <label class="cfield">Link to reference photos <span class="opt">(optional)</span><input name="reference" type="url" placeholder="https://"></label>
+
+        <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+
+        <label class="check"><input type="checkbox" name="consent" id="consent"><span id="consentText"></span></label>
+
+        <div class="err" id="err" role="alert"></div>
+        <button class="btn" type="submit" id="pay">Pay deposit and send request</button>
+        <p class="paynote">Secure payment by Stripe. We never see your card details.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="yr"></span> JA Jewelery Store, Toronto, Canada</span>
+    <span>Prices in Canadian dollars. Taxes calculated at checkout.</span>
+  </div>
+</footer>
+
+<script>
+/* ============ ILLUSTRATIONS (SVG, no image files needed) ============ */
+const art = {
+  ring:()=>`<svg viewBox="0 0 200 200"><circle cx="100" cy="115" r="52" fill="none" stroke="url(#g)" stroke-width="14"/>
+    <path d="M84 62 L116 62 L126 48 L100 30 L74 48 Z" fill="url(#g2)"/>
+    <path d="M78 48 L100 30 L122 48 L100 60 Z" fill="url(#gem)"/></svg>`,
+  band:()=>`<svg viewBox="0 0 200 200"><ellipse cx="100" cy="120" rx="56" ry="56" fill="none" stroke="url(#g)" stroke-width="18"/>
+    <ellipse cx="100" cy="120" rx="56" ry="56" fill="none" stroke="#fff" stroke-opacity=".25" stroke-width="2" transform="translate(0,-6)"/></svg>`,
+  pendant:()=>`<svg viewBox="0 0 200 200"><path d="M40 20 Q100 130 160 20" fill="none" stroke="url(#g)" stroke-width="3"/>
+    <path d="M100 104 L128 134 L100 176 L72 134 Z" fill="url(#g2)"/><path d="M100 114 L119 134 L100 164 L81 134 Z" fill="url(#gem)"/></svg>`,
+  chain:()=>`<svg viewBox="0 0 200 200"><path d="M30 40 Q100 190 170 40" fill="none" stroke="url(#g)" stroke-width="10" stroke-dasharray="14 4" stroke-linecap="round"/></svg>`,
+  hoops:()=>`<svg viewBox="0 0 200 200"><circle cx="68" cy="105" r="40" fill="none" stroke="url(#g)" stroke-width="9"/><circle cx="132" cy="105" r="40" fill="none" stroke="url(#g2)" stroke-width="9"/></svg>`,
+  studs:()=>`<svg viewBox="0 0 200 200"><g><circle cx="64" cy="100" r="26" fill="url(#g2)"/><circle cx="64" cy="100" r="17" fill="url(#gem)"/></g><g><circle cx="136" cy="100" r="26" fill="url(#g2)"/><circle cx="136" cy="100" r="17" fill="url(#gem)"/></g></svg>`,
+  bracelet:()=>`<svg viewBox="0 0 200 200"><ellipse cx="100" cy="108" rx="66" ry="42" fill="none" stroke="url(#g)" stroke-width="14"/>
+    <ellipse cx="100" cy="108" rx="66" ry="42" fill="none" stroke="#fff" stroke-opacity=".25" stroke-width="2" transform="translate(0,-5)"/><circle cx="100" cy="66" r="9" fill="url(#gem)"/></svg>`,
+  tennis:()=>`<svg viewBox="0 0 200 200"><ellipse cx="100" cy="108" rx="66" ry="42" fill="none" stroke="url(#g2)" stroke-width="12"/>
+    ${Array.from({length:14},(_,i)=>{const a=i/14*Math.PI*2;return `<circle cx="${100+66*Math.cos(a)}" cy="${108+42*Math.sin(a)}" r="5" fill="url(#gem)"/>`}).join('')}</svg>`
+};
+
+/* ============ STATE ============ */
+const $ = s => document.querySelector(s);
+let CFG = null, inspiration = "", watch = null;
+const money = n => "$" + Number(n).toLocaleString("en-CA", {minimumFractionDigits:0, maximumFractionDigits:2});
+
+/* ============ PAGE ============ */
+function opts(sel, list, placeholder){
+  sel.innerHTML = `<option value="">${placeholder}</option>` + list.map(v => `<option>${v}</option>`).join("");
+}
+function render(){
+  const s = CFG.settings;
+  opts($("#type"), Object.keys(s.deposits), "Select");
+  opts($("#metal"), s.metals, "Select");
+  opts($("#budget"), s.budgets, "Select");
+  $("#consentText").textContent = s.consentText;
+  $("#mail").textContent = s.contactEmail; $("#mail").href = "mailto:" + s.contactEmail;
+  document.querySelectorAll(".ta").forEach(e => e.textContent = s.turnaround);
+  $("#grid").innerHTML = CFG.designs.map(d => `
+    <article class="card">
+      <div class="pic" role="img" aria-label="${d.name}">${art[d.art]()}</div>
+      <div class="body">
+        <h3>${d.name}</h3>
+        <span class="mat">${d.mat}</span>
+        <div class="row"><span class="from">From ${money(d.from)}</span>
+        <button class="pick" data-id="${d.id}" aria-label="Customize ${d.name}">Customize</button></div>
+      </div>
+    </article>`).join("");
+  $("#wgrid").innerHTML = CFG.watches.map(w => `
+    <article class="wcard">
+      <div class="ph"><img src="${w.img}" alt="${w.name} ${w.ref}, ${w.detail}" loading="lazy" width="900" height="1150"><span class="tag">${w.condition}</span></div>
+      <div class="body">
+        <h3>${w.name}</h3>
+        <span class="mat">Ref. ${w.ref} &middot; ${w.detail}</span>
+        <div class="row"><span class="wprice">${money(w.price)}</span>
+        <button class="pick" data-w="${w.id}" ${w.sold?"disabled":""} aria-label="Reserve ${w.name} ${w.ref}">${w.sold?"Sold":"Reserve"}</button></div>
+      </div>
+    </article>`).join("");
+  updatePayLabel();
+}
+function updatePayLabel(){
+  const s = CFG.settings;
+  if(watch){ $("#pay").textContent = `Pay ${money(s.watchDeposit)} deposit to reserve`; return; }
+  const dep = s.deposits[$("#type").value];
+  $("#pay").textContent = dep ? `Pay ${money(dep)} deposit and send request` : "Pay deposit and send request";
+}
+function setMode(){
+  const s = CFG.settings;
+  document.querySelectorAll(".cfield").forEach(e => e.style.display = watch ? "none" : "");
+  $("#consentText").textContent = watch ? s.watchConsentText : s.consentText;
+  $("#descLabel").textContent = watch ? "Notes (optional)" : "Describe your idea";
+  $("#reqTitle").textContent = watch ? "Reserve your watch" : "Request your piece";
+  $("#reqLead").textContent = watch ? "Pay a deposit to hold this watch. It is credited toward the purchase price." : "The more detail you give us, the closer the first design will be.";
+  updatePayLabel();
+}
+function setInspiration(name, label){
+  inspiration = name || "";
+  $("#insp").classList.toggle("on", !!inspiration || !!watch);
+  $("#inspText").textContent = watch ? "Reserving: " + watch.name + " " + watch.ref + " (" + money(watch.price) + ")" : (inspiration ? "Starting from: " + inspiration : "");
+}
+$("#wgrid").addEventListener("click", e => {
+  const b = e.target.closest("[data-w]"); if(!b || b.disabled) return;
+  watch = CFG.watches.find(x => x.id === +b.dataset.w);
+  setInspiration(""); setMode();
+  $("#request").scrollIntoView({behavior:"smooth"});
+  setTimeout(()=>document.querySelector('[name="name"]').focus({preventScroll:true}), 500);
+});
+$("#grid").addEventListener("click", e => {
+  const b = e.target.closest(".pick"); if(!b) return;
+  const d = CFG.designs.find(x => x.id === +b.dataset.id);
+  watch = null; setMode();
+  $("#type").value = d.type; updatePayLabel(); setInspiration(d.name);
+  $("#request").scrollIntoView({behavior:"smooth"});
+  setTimeout(()=>document.querySelector('[name="name"]').focus({preventScroll:true}), 500);
+});
+$("#inspClear").onclick = () => { watch = null; setInspiration(""); setMode(); };
+$("#type").addEventListener("change", updatePayLabel);
+$("#desc").addEventListener("input", e => $("#cnt").textContent = e.target.value.length);
+
+/* ============ SUBMIT: opens Stripe Checkout for the deposit ============ */
+$("#form").addEventListener("submit", async e => {
+  e.preventDefault();
+  const f = e.target, d = Object.fromEntries(new FormData(f)), err = $("#err"), btn = $("#pay");
+  const fail = m => { err.textContent = m; };
+  if(!d.name.trim()) return fail("Enter your name.");
+  if(!/^\S+@\S+\.\S+$/.test(d.email.trim())) return fail("Enter a valid email address, like name@example.com.");
+  if(!watch){
+    if(!d.type) return fail("Choose the type of piece.");
+    if(!d.metal) return fail("Choose a metal.");
+    if(!d.budget) return fail("Choose a budget range.");
+    if(d.description.trim().length < 20) return fail("Describe your idea in at least a couple of sentences.");
+  }
+  if(!$("#consent").checked) return fail("Tick the box to confirm the deposit terms.");
+  err.textContent = "";
+  const label = btn.textContent;
+  btn.disabled = true; btn.textContent = "Opening secure payment...";
+  try{
+    const r = await fetch("/api/request", {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify(watch ? {name:d.name, email:d.email, phone:d.phone, description:d.description, website:d.website, watchId:watch.id, consent:true} : {...d, inspiration, consent:true})
+    });
+    const j = await r.json().catch(()=>({}));
+    if(!r.ok || !j.url) throw new Error(j.error || "We could not start checkout. Please try again.");
+    window.location.href = j.url;
+  }catch(ex){
+    fail(ex.message); btn.disabled = false; btn.textContent = label;
+  }
+});
+// Browser Back button from the payment page
+window.addEventListener("pageshow", e => { if(e.persisted){ $("#pay").disabled = false; updatePayLabel(); } });
+
+/* ============ INIT ============ */
+async function init(){
+  $("#yr").textContent = new Date().getFullYear();
+  if(new URLSearchParams(location.search).get("request")==="success"){
+    $("#banner").hidden = false;
+    history.replaceState(null, "", location.pathname);
+  }
+  try{
+    const r = await fetch("/custom.json");
+    CFG = await r.json();
+  }catch(e){
+    $("#grid").innerHTML = `<p class="lead" style="grid-column:1/-1">The page could not load fully. Refresh to try again.</p>`;
+    return;
+  }
+  render(); setMode();
+}
+init();
+</script>
+</body>
+</html>
